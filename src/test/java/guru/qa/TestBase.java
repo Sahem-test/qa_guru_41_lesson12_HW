@@ -30,6 +30,7 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browser_version", "128.0");
         Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
+        Configuration.headless = Boolean.parseBoolean(System.getProperty("headless","false"));
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
