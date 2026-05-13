@@ -59,16 +59,15 @@ public class PracticeFormTests extends TestBase {
                     .removeAds();
         });
         step("Fill required fields", () -> {
-            practiceFormPages.openPage()
-                    .setFirstName(td.userName)
+
+            practiceFormPages.setFirstName(td.userName)
                     .setLastName(td.lastName)
                     .setGender(td.gender)
                     .setUserNumber(td.userNumber)
                     .submitForm();
         });
         step("Check form results", () -> {
-            practiceFormPages.openPage()
-                    .modalWindowShouldBeVisible()
+            practiceFormPages.modalWindowShouldBeVisible()
                     .checkGreetingTextModalWindow()
                     .checkResult("Student Name", td.userName + " " + td.lastName)
                     .checkResult("Gender", td.gender)
@@ -84,13 +83,11 @@ public class PracticeFormTests extends TestBase {
                     .removeAds();
         });
         step("Don't fill in enough fields", () -> {
-            practiceFormPages.openPage()
-                    .setFirstName(td.userName)
+            practiceFormPages.setFirstName(td.userName)
                     .submitForm();
         });
         step("Check form results", () -> {
-            practiceFormPages.openPage()
-                    .modalWindowShouldNotBeVisible();
+            practiceFormPages.modalWindowShouldNotBeVisible();
         });
 
     }
@@ -103,16 +100,14 @@ public class PracticeFormTests extends TestBase {
                     .removeAds();
         });
         step("Fill registration form", () -> {
-            practiceFormPages.openPage()
-                    .setFirstName(td.userName)
+            practiceFormPages.setFirstName(td.userName)
                     .setLastName(td.lastName)
                     .setGender(td.gender)
                     .setUserNumber(td.wrongNumber)
                     .submitForm();
         });
         step("Check form results", () -> {
-            practiceFormPages.openPage()
-                    .modalWindowShouldNotBeVisible();
+            practiceFormPages.modalWindowShouldNotBeVisible();
         });
     }
 
@@ -124,12 +119,10 @@ public class PracticeFormTests extends TestBase {
                     .removeAds();
         });
         step("Submit form", () -> {
-            practiceFormPages.openPage()
-                    .submitForm();
+            practiceFormPages.submitForm();
         });
         step("Check form results", () -> {
-            practiceFormPages.openPage()
-                    .modalWindowShouldNotBeVisible()
+            practiceFormPages.modalWindowShouldNotBeVisible()
                     .requirementFillFormTest();
         });
 
